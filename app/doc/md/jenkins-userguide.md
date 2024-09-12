@@ -1,4 +1,5 @@
 # Jenkins 사용법
+# 변경 약간
 
 ## Jenkins 설치
 
@@ -335,6 +336,7 @@ docker 이미지 생성 및 도커 허브에 push 하기
           - `docker login -u '도커허브아이디' -p '도커허브비번' docker.io`
           - `docker build -t [dockerHub UserName]/[dockerHub Repository]:[version] app/`
           - `docker push [dockerHub UserName]/[dockerHub Repository]:[version]`
+  
         - 저장
 
 스프링부트 서버에서 docker pull 및 run
@@ -348,6 +350,10 @@ docker 이미지 생성 및 도커 허브에 push 하기
           - Transfers
             - Exec command
               - `docker login -u '도커허브아이디' -p '도커허브비번' docker.io`
-              - `docker pull [dockerHub UserName]/[dockerHub Repository]:[version]`
+              - `docker pull mhee116677/[dockerHub Repository]:[version]`
               - `docker ps -q --filter name=[containerName] | grep -q . && docker rm -f $(docker ps -aq --filter name=[containerName])`
               - `docker run -d --name [containerName] -p 80:80 [dockerHub UserName]/[dockerHub Repository]:[version]`
+              - `docker login -u '도커허브아이디' -p '도커허브비번' docker.io`
+              - `docker pull mhee116677/myapp:1.0`
+              - `docker ps -q --filter name=ai08 | grep -q . && docker rm -f $(docker ps -aq --filter name=ai08myapp)`
+              - `docker run -d --name ai08myapp -p 80:80 mhee116677/myapp:1.0`
